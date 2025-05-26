@@ -4,21 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Marcin Charzyński – Portfolio</title>
-  <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-800 font-sans leading-relaxed">
-  <main class="max-w-3xl mx-auto px-6 py-12">
-    <h1 class="text-3xl font-bold text-indigo-700 mb-6">Hi, I'm Marcin Charzyński</h1>
-    <p class="mb-6">Welcome to my portfolio. Explore the projects below:</p>
-    
-    <ul class="space-y-4">
-      <li>
-        <a href="https://marcin-charzynski.github.io/financial-analysis-of-a-fictitious-company" class="text-indigo-600 hover:underline">
-          📊 Financial Analysis of a Fictitious Company
-        </a>
-      </li>
-      <!-- Add more project links here in future -->
-    </ul>
+<body class="min-h-screen bg-gray-50 text-gray-800 font-sans antialiased flex flex-col">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="/" class="text-xl font-semibold text-indigo-600 hover:text-indigo-800">
+        Finance Portfolio
+      </a>
+      <ul class="hidden md:flex space-x-6 text-gray-600">
+        <li><a href="/" class="hover:text-indigo-600 font-bold text-indigo-700">Home</a></li>
+        <li><a href="https://marcin-charzynski.github.io/financial-analysis-of-a-fictitious-company" class="hover:text-indigo-600">Project 1</a></li>
+        <!-- Add more links as needed -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 px-4 bg-gradient-to-br from-indigo-50 to-white">
+    <h1 class="text-4xl font-extrabold text-indigo-700 mb-4">Hi, I'm Marcin Charzyński</h1>
+    <p class="text-lg text-gray-600 max-w-xl mx-auto">
+      Welcome to my portfolio. I'm a data analyst passionate about financial modeling, business intelligence, and clean visual storytelling. Explore my projects below.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <main class="container mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 max-w-6xl">
+    <!-- Project Card 1 -->
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden border hover:shadow-lg transition">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold text-indigo-700 mb-2">📊 Financial Analysis of a Fictitious Company</h2>
+        <p class="text-gray-600 mb-4">
+          A full-stack analysis of a fictional company's financial performance using SQL, Power BI, and Excel VBA automation.
+        </p>
+        <a href="https://marcin-charzynski.github.io/financial-analysis-of-a-fictitious-company" class="text-indigo-600 hover:text-indigo-800 font-medium">View Project →</a>
+      </div>
+    </div>
+
+    <!-- Add more project cards below -->
+    <!-- Example placeholder -->
+    <!--
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden border hover:shadow-lg transition">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold text-indigo-700 mb-2">📈 [Future Project Title]</h2>
+        <p class="text-gray-600 mb-4">
+          Brief description of your next project goes here.
+        </p>
+        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">View Project →</a>
+      </div>
+    </div>
+    -->
   </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12">
+    <div class="container mx-auto px-4 py-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-2">
+      <span>&copy; 2025 Marcin – Financial Analyst Portfolio</span>
+      <span>
+        <a href="https://www.linkedin.com/in/marcin-charzy%C5%84ski/" class="hover:text-indigo-600">LinkedIn</a> · 
+        <a href="https://github.com/Marcin-Charzynski" class="hover:text-indigo-600">GitHub</a>
+      </span>
+    </div>
+  </footer>
+
 </body>
 </html>
