@@ -1,16 +1,23 @@
+function sanitize(value) {
+  if (typeof value === "string" && value.startsWith("=")) {
+    return "'" + value; // apostrof sprawia, że traktowane jako tekst
+  }
+  return value;
+}
+
 function doPost(e) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   var data = JSON.parse(e.postData.contents);
 
   sheet.appendRow([
     new Date(),
-    data.userAgent || "brak",
-    data.page || "brak",
-    data.referrer || "brak",
-    data.screen || "brak",
-    data.language || "brak",
-    data.timezone || "brak",
-    data.time || "brak"
+      sanitize(data.userAgent) || "brak",
+      sanitize(data.page) || "brak",
+      sanitize(data.referrer) || "brak",
+      sanitize(data.screen) || "brak",
+      sanitize(data.language) || "brak",
+      sanitize(data.timezone) || "brak",
+      sanitize(data.time) || "brak"
   ]);
 
   return ContentService.createTextOutput("OK").setMimeType(ContentService.MimeType.TEXT);
@@ -22,6 +29,8 @@ Timestamp	User Agent	Page	Referrer	Screen	Language	Timezone	JS Time
 page:
 
 <script>
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get("src") || "direct";
   fetch("https://script.google.com/macros/s/AKfycbxQnisU7CNye7XVl2eKrYQxTciNPCj2LmG8W4PhMrO-X-ynzgmudBTyrjs1ILXwnLpS/exec", {
     method: "POST",
     mode: "no-cors",
@@ -31,7 +40,7 @@ page:
     body: JSON.stringify({
       userAgent: navigator.userAgent,
       page: location.href,
-      referrer: document.referrer,
+      referrer: source,
       screen: `${screen.width}x${screen.height}`,
       language: navigator.language,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,

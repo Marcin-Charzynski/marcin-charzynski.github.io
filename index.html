@@ -84,6 +84,8 @@
   </footer>
 
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("src") || "direct";
     fetch("https://script.google.com/macros/s/AKfycbxQnisU7CNye7XVl2eKrYQxTciNPCj2LmG8W4PhMrO-X-ynzgmudBTyrjs1ILXwnLpS/exec", {
       method: "POST",
       mode: "no-cors",
@@ -93,7 +95,7 @@
       body: JSON.stringify({
         userAgent: navigator.userAgent,
         page: location.href,
-        referrer: document.referrer,
+        referrer: source,
         screen: `${screen.width}x${screen.height}`,
         language: navigator.language,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
